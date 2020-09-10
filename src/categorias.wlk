@@ -10,9 +10,34 @@ object cadete {
 
 }
 
-// Puedo agregar nuevas categorías sin necesidad de modificar a pepe :)
-object presidente {
+// BONUS
+object vendedor {
 
-	method neto() = 100000000
+	var muchasVentas = false
+
+	method neto() = 16000 * self.multiplicadorPorVentas()
+
+	method multiplicadorPorVentas() = if (muchasVentas) 1.5 else 1
+
+	method activarAumentoPorMuchasVentas() {
+		muchasVentas = true
+	}
+
+	method desactivarAumentoPorMuchasVentas() {
+		muchasVentas = false
+	}
 
 }
+
+object medioTiempo {
+
+	var categoriaBase
+
+	method neto() = categoriaBase.neto() / 2
+
+	method categoriaBase(categoria) {
+		categoriaBase = categoria
+	}
+
+}
+
